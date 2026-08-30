@@ -1,0 +1,431 @@
+{
+  "info": {
+    "_postman_id": "11c0daac-234a-4aa7-8c6f-83b7d7a89913",
+    "name": "Random-Quote-API",
+    "description": "# RandomQuote API\n\nRandomQuote API is a RESTful API for managing quotes, and retrieving random quotes\n\nThe collection is organized around the following resources:\n\n- Quotes — Quote management and random quote retrieval.\n    \n\nEach request contains its own documentation, including the endpoint, request parameters, request body, authentication requirements, and example responses.\n\n## Request Format\n\nRequests that send data to the API use JSON format unless otherwise specified.\n\n``` text\nContent-Type: application/json\n\n ```\n\n## Environment\n\nThe collection uses the `{{BASE_URL}}` variable to define the API base URL.\n\nThe base URL and other sensitive values are stored in the Postman environment and are not included in the public documentation.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37849025"
+  },
+  "item": [
+    {
+      "name": "Quotes",
+      "item": [
+        {
+          "name": "Get Quotes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/quotes",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "quotes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 Quotes Retrieved Successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BASE_URL}}/quotes",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "1491"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"5d3-rzWlKwvZZ0qyFfItvqtwkZhl/TI\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 28 Aug 2026 15:50:10 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 22,\n    \"quote\": \"Belajar sepanjang hayat\",\n    \"author\": \"Socrates\"\n  },\n  {\n    \"id\": 23,\n    \"quote\": \"Waktu adalah uang\",\n    \"author\": \"Benjamin Franklin\"\n  },\n  {\n    \"id\": 24,\n    \"quote\": \"Jangan menunda pekerjaan\",\n    \"author\": \"Thomas Jefferson\"\n  },\n  {\n    \"id\": 25,\n    \"quote\": \"Bangun lebih pagi untuk sukses\",\n    \"author\": \"Joko Widodo\"\n  },\n  {\n    \"id\": 26,\n    \"quote\": \"Cintai pekerjaanmu\",\n    \"author\": \"Steve Jobs\"\n  },\n  {\n    \"id\": 27,\n    \"quote\": \"Sukses adalah kebiasaan\",\n    \"author\": \"Aristoteles\"\n  },\n  {\n    \"id\": 28,\n    \"quote\": \"Jangan takut gagal\",\n    \"author\": \"Michael Jordan\"\n  },\n  {\n    \"id\": 29,\n    \"quote\": \"Berani mencoba itu penting\",\n    \"author\": \"Elon Musk\"\n  },\n  {\n    \"id\": 30,\n    \"quote\": \"Inovasi tanpa henti\",\n    \"author\": \"Jeff Bezos\"\n  },\n  {\n    \"id\": 31,\n    \"quote\": \"Jadilah versi terbaik dirimu\",\n    \"author\": \"Oprah Winfrey\"\n  },\n  {\n    \"id\": 32,\n    \"quote\": \"Pendidikan kunci masa depan\",\n    \"author\": \"Nelson Mandela\"\n  },\n  {\n    \"id\": 33,\n    \"quote\": \"Berpikir positif membawa hasil baik\",\n    \"author\": \"Norman Vincent Peale\"\n  },\n  {\n    \"id\": 34,\n    \"quote\": \"Kesuksesan datang dari kerja keras\",\n    \"author\": \"Dwayne Johnson\"\n  },\n  {\n    \"id\": 35,\n    \"quote\": \"Fokuslah pada solusi, bukan masalah\",\n    \"author\": \"Tony Robbins\"\n  },\n  {\n    \"id\": 36,\n    \"quote\": \"Keberanian adalah kunci perubahan\",\n    \"author\": \"Barack Obama\"\n  },\n  {\n    \"id\": 37,\n    \"quote\": \"Impian dimulai dari langkah kecil\",\n    \"author\": \"Walt Disney\"\n  },\n  {\n    \"id\": 38,\n    \"quote\": \"Waktu terbaik menanam pohon adalah sekarang\",\n    \"author\": \"Pepatah China\"\n  },\n  {\n    \"id\": 39,\n    \"quote\": \"Kreativitas adalah kecerdasan bersenang-senang\",\n    \"author\": \"Albert Einstein\"\n  },\n  {\n    \"id\": 40,\n    \"quote\": \"Jangan hidup untuk bekerja, bekerjalah untuk hidup\",\n    \"author\": \"Simon Sinek\"\n  },\n  {\n    \"id\": 43,\n    \"quote\": \"hidup adalah pilihan\",\n    \"author\": \"unknown\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create Quotes",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"quote\":\"hidup adalah pilihan\",\r\n    \"author\":\"unknown\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/quotes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "quotes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 Created Quotes Successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"quote\":\"hidup adalah pilihan\",\r\n    \"author\":\"unknown\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/quotes",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "109"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"6d-iOgOsISqjewC4ktWcvRBo/NzBg0\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 28 Aug 2026 15:47:47 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"berhasil menambah data quote\",\n  \"data\": {\n    \"id\": 43,\n    \"quote\": \"hidup adalah pilihan\",\n    \"author\": \"unknown\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Quotes",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"quote\":\"pilihan adalah hidup\",\r\n    \"author\":\"unknown\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/quotes/43",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "quotes",
+                "43"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 Updated Quotes Successfully",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"quote\":\"pilihan adalah hidup\",\r\n    \"author\":\"unknown\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BASE_URL}}/quotes/43",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "43"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "104"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"68-SHnVuC6MRH8xdxw8PiZ0PaabNcs\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 28 Aug 2026 15:51:54 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"berhasil mengedit quote\",\n  \"data\": {\n    \"id\": 43,\n    \"quote\": \"pilihan adalah hidup\",\n    \"author\": \"unknown\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Quotes",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/quotes/43",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "quotes",
+                "43"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 Deleted Quotes Successfully",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BASE_URL}}/quotes/43",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "43"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "43"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"2b-w63r8i+aDMnghkrFAnPZSydEFpg\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 28 Aug 2026 15:52:59 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"berhasil menghapus data quote\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Random Quotes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/quotes/random",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "quotes",
+                "random"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 Random Quotes Retrieved Successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BASE_URL}}/quotes/random",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "random"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "76"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"4c-LzKtsm5gnew1ho/9Gp3TafWEwE4\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 28 Aug 2026 15:16:57 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 37,\n  \"quote\": \"Impian dimulai dari langkah kecil\",\n  \"author\": \"Walt Disney\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "- This folder contains endpoints for managing quotes"
+    }
+  ]
+}

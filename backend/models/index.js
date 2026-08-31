@@ -1,29 +1,20 @@
-const config = require("../config/db.config");
-
+require("pg");
+const env = process.env.NODE_ENV || "development";
+const config = require("../config/config")[env];
 const Sequelize = require("sequelize");
 
 let sequelize;
 
-if (process.env.NODE_ENV === "production") {
-  sequelize = new Sequelize(config.DATABASE_URL, {
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
+if (config.url) {
+  sequelize = new Sequelize(config.url, {
+    dialect: config.dialect,
+    dialectOptions: config.dialectOptions,
     logging: false,
   });
 } else {
-  sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
-    host: config.HOST,
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
     dialect: config.dialect,
-    pool: {
-      max: config.pool.max,
-      min: config.pool.min,
-      acquire: config.pool.acquire,
-      idle: config.pool.idle,
-    },
   });
 }
 

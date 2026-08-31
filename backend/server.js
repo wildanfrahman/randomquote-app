@@ -26,7 +26,7 @@ app.use("/quotes", quoteRoutes);
 //default-route
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "TaskFlow API is Running",
+    message: "RandomQuote API is Running",
   });
 });
 

@@ -28,4 +28,10 @@ client.on("connect", () => {
   console.log("redis connected successfully!");
 });
 
-module.exports = client;
+async function ensureConnected() {
+  if (!client.isOpen) {
+    await client.connect();
+  }
+}
+
+module.exports = { client, ensureConnected };

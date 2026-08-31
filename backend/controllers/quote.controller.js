@@ -1,10 +1,14 @@
 const db = require("../models");
 const Quotes = db.quotes;
-const redisClient = require("../config/redis.config");
+const {
+  client: redisClient,
+  ensureConnected,
+} = require("../config/redis.config");
 
 //menambah data quote baru
 exports.createQuotes = async (req, res) => {
   try {
+    await ensureConnected();
     const { quote, author } = req.body;
     const newQuote = await Quotes.create({ quote, author });
 
@@ -23,6 +27,7 @@ exports.createQuotes = async (req, res) => {
 //mengambil quote secara acak
 exports.randomQuotes = async (req, res) => {
   try {
+    await ensureConnected();
     const cacheKey = "randomQuotesPool";
     let quotesPool = await redisClient.get(cacheKey);
 
@@ -49,6 +54,7 @@ exports.randomQuotes = async (req, res) => {
 //dapatkan semua data quote
 exports.allQuotes = async (req, res) => {
   try {
+    await ensureConnected();
     const cacheKey = "allQuotes";
     const cachedData = await redisClient.get(cacheKey);
 
@@ -62,6 +68,7 @@ exports.allQuotes = async (req, res) => {
     await redisClient.setEx(cacheKey, 300, JSON.stringify(allQuotes));
     res.status(200).json(allQuotes);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "gagal mendapatkan data quotes" });
   }
 };
@@ -69,6 +76,7 @@ exports.allQuotes = async (req, res) => {
 //update data quote
 exports.updateQuotes = async (req, res) => {
   try {
+    await ensureConnected();
     const updateQuotes = await Quotes.findByPk(req.params.id);
     if (!updateQuotes) {
       return res.status(404).json({ message: "Quote tidak ditemukan" });
@@ -90,6 +98,7 @@ exports.updateQuotes = async (req, res) => {
 
 exports.deleteQuotes = async (req, res) => {
   try {
+    await ensureConnected();
     const deleteQuotes = await Quotes.findByPk(req.params.id);
     if (!deleteQuotes) {
       return res.status(404).json({ message: "quote tidak ditemukan" });

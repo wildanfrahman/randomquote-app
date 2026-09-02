@@ -175,22 +175,26 @@ Environment files containing sensitive or local configuration are not included i
 ### Backend
 
 ```env
-DATABASE
+#DATABASE
 DB_HOST =
 DB_USER =
 DB_PASSWORD =
 DB_NAME =
 DB_DIALECT =
-DB_URL =
+
+#PRODUCTION
+DB_URL=
+DB_DIALECT_PROD=
 
 #REDIS
 RD_HOST =
 RD_PORT =
+RD_URL=
 
 #PORT
 PORT =
 
-NODE_ENV =
+NODE_ENV=
 ```
 
 ### Frontend
